@@ -43,28 +43,46 @@
             transform: translateY(-3px);
         }
 
-        p {
+        li {
             margin-top: 10px;
             font-size: 1.3em;
+        }
+
+        a {
+            color: black;
         }
     </style>
 </head>
 
 <body>
     <input type="text" id="input-el">
-    <button id="input-btn">SAVE INPUT</button>
+    <button id="save-btn">SAVE INPUT</button>
     <button id="tab-btn">SAVE TAB</button>
     <button id="delete-btn">DELETE ALL</button>
-    <p id="save-el">
-
-    </p>
+    <ul id="save-el">
+    </ul>
     <script>
         document.title = "CHROME EXTENSION";
+        let myArr = [];
         const inputEl = document.getElementById("input-el");
         const saveBtn = document.getElementById("save-btn");
         const tabBtn = document.getElementById("tab-btn");
         const deleteBtn = document.getElementById("delete-btn");
         const saveEl = document.getElementById("save-el");
+
+        saveBtn.addEventListener("click", inputSave);
+        function inputSave() {
+            console.log("koko");
+            let myInput = inputEl.value;
+            myArr.push(myInput);
+            console.log(myArr);
+            saveEl.innerHTML = ""
+            if (myInput) {
+                for (let i = 0; i < myArr.length; i++) {
+                    saveEl.innerHTML += `<li><a href="${myArr[i]}" target="_blank">${myArr[i]}</a></li>`
+                }
+            }
+        }
     </script>
 </body>
 
