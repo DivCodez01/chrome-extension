@@ -49,7 +49,8 @@
         }
 
         a {
-            color: black;
+            color: green;
+            padding-left: 1.3em;
         }
     </style>
 </head>
@@ -72,16 +73,16 @@
 
         saveBtn.addEventListener("click", inputSave);
         function inputSave() {
-            console.log("koko");
-            let myInput = inputEl.value;
-            myArr.push(myInput);
-            console.log(myArr);
-            saveEl.innerHTML = ""
-            if (myInput) {
+            let input
+            if (inputEl.value) {
+                saveEl.innerHTML = "";
+                myArr.push(inputEl.value);
+                console.log(myArr);
                 for (let i = 0; i < myArr.length; i++) {
                     saveEl.innerHTML += `<li><a href="${myArr[i]}" target="_blank">${myArr[i]}</a></li>`
                 }
             }
+            inputEl.value = "";
         }
     </script>
 </body>
