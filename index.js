@@ -6,13 +6,13 @@ const tabBt = document.getElementById("tab-bt");
 const deleteBt = document.getElementById("delete-bt");
 const saveElm = document.getElementById("save-elm");
 
-// let myLStrorage = JSON.parse(localStorage.getItem("myArr"));
+let myLStrorage = JSON.parse(localStorage.getItem("myArr"));
 
-// const localStorageToArray = () => {
-//     myArr = myLStrorage;
-// }
+const localStorageToArray = () => {
+    myArr = myLStrorage;
+}
 
-// localStorageToArray()
+localStorageToArray()
 
 saveBt.addEventListener("click", inputLead);
 
@@ -31,7 +31,7 @@ function readInputItems() {
     for (let i = 0; i < myArr.length; i++) {
         saveInput += `
             <li>
-                <a href="${myArr}" target="_blank">
+                <a href="${myArr[i]}" target="_blank">
                     ${myArr[i]}
                 </a>
             </li>
@@ -58,5 +58,10 @@ function chromeTabsave() {
         readInputItems()
     })
 }
+
+inputElm.addEventListener("change", function () {
+    readInputItems()
+    inputLead()
+})
 
 document.addEventListener("DOMContentLoaded", readInputItems);
