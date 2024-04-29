@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: white;
+    background-image: linear-gradient(to right, rgb(7, 33, 41), rgb(52, 59, 52), rgb(49, 63, 49), rgb(61, 61, 61), rgb(21, 21, 22));
     margin: 0;
     padding: 10px;
     min-width: 400px;
@@ -44,6 +44,6 @@ li {
 }
 
 a {
-    color: green;
+    color: white;
     padding-left: 1.3em;
 }
